@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.mmt.microlove.BaseApplication;
+import com.mmt.microlove.application.BaseApplication;
 
 import rx.Subscription;
 import rx.subscriptions.CompositeSubscription;

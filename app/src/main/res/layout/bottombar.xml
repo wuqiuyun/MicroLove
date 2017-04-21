@@ -21,6 +21,7 @@
             android:drawableTop="@drawable/rb_location_selector"
             android:gravity="center_horizontal"
             android:text="@string/title_activity_location"
+            android:textColor="@drawable/rb_location_selector"
             android:textSize="@dimen/text_size_small" />
 
         <RadioButton
@@ -32,6 +33,7 @@
             android:drawableTop="@drawable/rb_chat_selector"
             android:gravity="center_horizontal"
             android:text="@string/title_activity_chat"
+            android:textColor="@drawable/rb_chat_selector"
             android:textSize="@dimen/text_size_small" />
 
         <RadioButton
@@ -43,6 +45,7 @@
             android:drawableTop="@drawable/rb_time_selector"
             android:gravity="center_horizontal"
             android:text="@string/title_activity_couple"
+            android:textColor="@drawable/rb_time_selector"
             android:textSize="@dimen/text_size_small" />
 
         <RadioButton
@@ -54,6 +57,7 @@
             android:drawableTop="@drawable/rb_mine_selector"
             android:gravity="center_horizontal"
             android:text="@string/title_activity_mine"
+            android:textColor="@drawable/rb_mine_selector"
             android:textSize="@dimen/text_size_small" />
     </RadioGroup>
 

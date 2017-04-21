@@ -1,4 +1,4 @@
-package com.mmt.microlove;
+package com.mmt.microlove.application;
 
 import android.app.Activity;
 import android.app.Application;

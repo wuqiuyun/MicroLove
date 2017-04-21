@@ -1,16 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin">
+    android:layout_height="match_parent">
 
-  <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="@dimen/text_size_huge"
-        android:text="@string/title_activity_mine" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:scrollbars="none"
+        android:layout_height="wrap_content">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <RelativeLayout
+                android:id="@+id/relativeMineHeader"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/mine_bg_height"
+                android:background="@mipmap/ic_launcher">
+
+                <com.mmt.microlove.view.CircleImageView
+                    android:id="@+id/ivPhoto"
+                    android:layout_width="@dimen/img_max"
+                    android:layout_height="@dimen/img_max"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="@dimen/margin_max"
+                    android:src="@mipmap/icon_default" />
+
+                <TextView
+                    android:id="@+id/tvNickname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="@dimen/margin_small"
+                    android:text="@string/to_login"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_large" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/relativeMineHeader"
+                android:layout_marginTop="@dimen/margin_large"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:id="@+id/itemShoucang"
+                    style="@style/mine_item_ll">
+
+                    <ImageView
+                        android:id="@+id/imageView1"
+                        style="@style/mine_item_img"
+                        android:src="@mipmap/ic_launcher" />
+
+                    <TextView
+                        android:id="@+id/textView3"
+                        style="@style/mine_item_tv"
+                        android:text="我们的相册" />
+                </LinearLayout>
+
+                <TextView style="@style/spaceLine" />
+
+                <LinearLayout
+                    android:id="@+id/itemAddress"
+                    style="@style/mine_item_ll">
+
+                    <ImageView
+                        android:id="@+id/imageView2"
+                        style="@style/mine_item_img"
+                        android:src="@mipmap/ic_launcher" />
+
+                    <TextView
+                        android:id="@+id/textView6"
+                        style="@style/mine_item_tv"
+                        android:text="我们的回忆" />
+                </LinearLayout>
+
+                <TextView style="@style/spaceLine" />
+
+                <LinearLayout
+                    android:id="@+id/itemOrder"
+                    style="@style/mine_item_ll">
+
+                    <ImageView
+                        android:id="@+id/imageView31"
+                        style="@style/mine_item_img"
+                        android:src="@mipmap/ic_launcher" />
+
+                    <TextView
+                        android:id="@+id/textView32"
+                        style="@style/mine_item_tv"
+                        android:text="我们的旅行" />
+                </LinearLayout>
+
+                <TextView style="@style/spaceLine" />
+
+                <LinearLayout
+                    android:id="@+id/itemSettings"
+                    style="@style/mine_item_ll">
+
+                    <ImageView
+                        android:id="@+id/imageView41"
+                        style="@style/mine_item_img"
+                        android:src="@mipmap/ic_launcher" />
+
+                    <TextView
+                        android:id="@+id/textView42"
+                        style="@style/mine_item_tv"
+                        android:text="设置" />
+                </LinearLayout>
+
+                <TextView style="@style/spaceLine" />
+
+                <LinearLayout
+                    android:id="@+id/itemExit"
+                    style="@style/mine_item_ll">
+
+                    <ImageView
+                        android:id="@+id/imageView51"
+                        style="@style/mine_item_img"
+                        android:src="@mipmap/ic_launcher" />
+
+                    <TextView
+                        android:id="@+id/textView52"
+                        style="@style/mine_item_tv"
+                        android:text="退出" />
+                </LinearLayout>
+
+                <TextView style="@style/spaceLine" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
 </RelativeLayout>

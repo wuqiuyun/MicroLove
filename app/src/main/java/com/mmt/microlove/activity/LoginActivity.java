@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.mmt.microlove.BaseApplication;
+import com.mmt.microlove.application.BaseApplication;
 import com.mmt.microlove.R;
 import com.mmt.microlove.bean.UserInfo;
 import com.mmt.microlove.utils.Constants;

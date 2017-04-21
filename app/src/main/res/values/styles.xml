@@ -1,10 +1,35 @@
 <resources>
+    <!-- “我的”  Item 图片-->
+    <style name="mine_item_img">
+        <item name="android:layout_width">@dimen/icon_huge</item>
+        <item name="android:layout_height">@dimen/icon_large</item>
+        <item name="android:scaleType">centerInside</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_alignParentLeft">true</item>
+        <item name="android:layout_alignParentStart">true</item>
+    </style>
+
+    <!-- “我的”  Item LinearLayout布局 -->
+    <style name="mine_item_ll">
+        <item name="android:orientation">horizontal</item>
+        <item name="android:layout_height">@dimen/item_large</item>
+        <item name="android:layout_width">match_parent</item>
+    </style>
+
+    <!-- “我的”  Item TextView -->
+    <style name="mine_item_tv">
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:layout_height">@dimen/item_large</item>
+        <item name="android:layout_width">match_parent</item>
+    </style>
+
     <!-- 分割线 -->
     <style name="spaceLine">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">@dimen/line_height</item>
         <item name="android:background">@color/line_color</item>
     </style>
+
     <!-- 提示栏 -->
     <style name="prompt">
         <item name="android:layout_width">match_parent</item>
@@ -19,21 +44,9 @@
         <item name="android:textSize">@dimen/font_tiny</item>
     </style>
 
-    <!--
-        Base application theme, dependent on API level. This theme is replaced
-        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
-    -->
-    <style name="AppBaseTheme" parent="android:Theme.Light">
-        <!--
-            Theme customizations available in newer API levels can go in
-            res/values-vXX/styles.xml, while customizations related to
-            backward-compatibility can go here.
-        -->
-    </style>
+    <style name="AppBaseTheme" parent="android:Theme.Light" />
 
     <!-- Application theme. -->
-    <style name="AppTheme" parent="android:Theme.Light">
-        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
-    </style>
+    <style name="AppTheme" parent="android:Theme.Light" />
 
 </resources>

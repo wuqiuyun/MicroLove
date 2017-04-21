@@ -8,5 +8,5 @@
     <string name="title_activity_mine">Mine</string>
     <string name="title_activity_couple">Couple</string>
     <string name="title_activity_location">Location</string>
-
+    <string name="to_login">toLogin</string>
 </resources>

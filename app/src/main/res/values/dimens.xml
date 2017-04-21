@@ -81,4 +81,7 @@
 
     <!-- 通用 圆角 -->
     <dimen name="radius">5dp</dimen>
+
+    <!-- 我的 -->
+    <dimen name="mine_bg_height">200dp</dimen>
 </resources>

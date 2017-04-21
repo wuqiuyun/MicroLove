@@ -8,7 +8,7 @@ import com.baidu.location.LocationClient;
 import com.baidu.location.LocationClientOption;
 import com.baidu.location.Poi;
 import com.baidu.mapapi.map.BaiduMap;
-import com.mmt.microlove.BaseApplication;
+import com.mmt.microlove.application.BaseApplication;
 import com.mmt.microlove.model.callback.BdLocationCallBack;
 
 import java.util.List;

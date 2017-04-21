@@ -13,7 +13,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.mmt.microlove.BaseApplication;
+import com.mmt.microlove.application.BaseApplication;
 
 import java.util.List;
 
