@@ -3,7 +3,11 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 25
     buildToolsVersion "23.0.3"
-
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
     defaultConfig {
         applicationId "com.mmt.microlove"
         minSdkVersion 17
@@ -20,7 +24,25 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:25.2.0'
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile 'com.google.android.gms:play-services-appindexing:8.1.0'
+    compile files('libs/baidumapapi_base_v4_0_0.jar')
+    compile files('libs/baidumapapi_map_v4_0_0.jar')
+    compile files('libs/baidumapapi_util_v4_0_0.jar')
+    compile files('libs/BmobSDK_3.5.1_20160719.jar')
+    compile files('libs/gson-2.6.2.jar')
+    compile files('libs/listviewanimations-2.6.0.jar')
+    compile files('libs/locSDK_6.13.jar')
+    compile files('libs/nineoldandroids-2.4.0.jar')
+    compile files('libs/okhttp-3.3.1.jar')
+    compile files('libs/okio-1.7.0.jar')
+    compile files('libs/rxandroid-1.2.0.jar')
+    compile files('libs/rxjava-1.1.6.jar')
+    compile files('libs/universal-image-loader-1.9.4.jar')
+    compile files('libs/photoview-library-1.2.2.jar')
+    compile files('libs/baidumapapi_search_v4_0_0.jar')
+    compile files('libs/android-smart-image-view-1.0.0.jar')
 }

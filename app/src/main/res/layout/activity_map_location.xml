@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/theme_bg"
+    android:orientation="vertical">
+
+
+
+    <TextView
+        android:id="@+id/tv_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:visibility="gone" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <com.baidu.mapapi.map.MapView
+            android:id="@+id/bmapView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clickable="true" />
+
+        <Button
+            android:id="@+id/btn_mode"
+            android:layout_width="@dimen/btn_width_normal"
+            android:layout_height="@dimen/btn_height_normal"
+            android:layout_gravity="right"
+            android:layout_marginRight="@dimen/margin_normal"
+            android:layout_marginTop="@dimen/margin_normal"
+            android:background="@drawable/btn_content_gray_selector" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_locate_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/item_normal"
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/padding_normal"
+            android:paddingRight="@dimen/padding_normal">
+
+            <ImageView
+                android:layout_width="@dimen/img_tiny"
+                android:layout_height="@dimen/img_tiny"
+                android:contentDescription="@null"
+                android:src="@mipmap/map_icon" />
+
+            <TextView
+                android:id="@+id/tv_address"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/margin_small"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text=""
+                android:textColor="@color/black"
+                android:textSize="@dimen/font_normal" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#474c53"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_large"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/padding_normal"
+                android:paddingRight="@dimen/padding_normal">
+
+                <TextView
+                    android:id="@+id/tv_province"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text=""
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/font_normal" />
+
+                <TextView
+                    android:id="@+id/tv_city"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text=""
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/font_normal" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_county"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_normal"
+                android:layout_marginRight="@dimen/margin_normal"
+                android:layout_marginTop="@dimen/margin_small"
+                android:text=""
+                android:textColor="@color/white"
+                android:textSize="@dimen/font_normal" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_large"
+                android:layout_marginTop="@dimen/margin_large"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/padding_normal"
+                android:paddingRight="@dimen/padding_normal">
+
+                <TextView
+                    android:id="@+id/tv_latitude"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text=""
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/font_normal" />
+
+                <TextView
+                    android:id="@+id/tv_longitude"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text=""
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/font_normal" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

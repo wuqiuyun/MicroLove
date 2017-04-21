@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal" >
+
+    <RadioGroup
+        android:id="@+id/rg_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/bottomBar_height"
+        android:orientation="horizontal" >
+
+        <RadioButton
+            android:id="@+id/rb_location"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@mipmap/d48"
+            android:gravity="center_horizontal"
+            android:text="@string/title_activity_location"
+            android:textSize="@dimen/text_size_small" />
+
+        <RadioButton
+            android:id="@+id/rb_chat"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@mipmap/d48"
+            android:gravity="center_horizontal"
+            android:text="@string/title_activity_chat"
+            android:textSize="@dimen/text_size_small" />
+
+        <RadioButton
+            android:id="@+id/rb_couple"
+            android:layout_width="0dp"
+            android:button="@null"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:drawableTop="@mipmap/d48"
+            android:gravity="center_horizontal"
+            android:text="@string/title_activity_couple"
+            android:textSize="@dimen/text_size_small" />
+
+        <RadioButton
+            android:id="@+id/rb_mine"
+            android:button="@null"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:drawableTop="@mipmap/d48"
+            android:gravity="center_horizontal"
+            android:text="@string/title_activity_mine"
+            android:textSize="@dimen/text_size_small" />
+    </RadioGroup>
+
+</LinearLayout>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/theme_bg"
+    android:orientation="vertical">
+
+    <com.mmt.microlove.view.DeletableEditText
+        android:id="@+id/edt_name"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/item_normal"
+        android:layout_marginTop="@dimen/margin_max"
+        android:background="@drawable/edt_view_bg"
+        android:drawableRight="@drawable/btn_delete_selector"
+        android:gravity="center"
+        android:hint="@string/please_enter_login_name"
+        android:maxLines="1"
+        android:paddingLeft="@dimen/padding_small"
+        android:paddingRight="@dimen/padding_small"
+        android:singleLine="true"
+        android:textColor="@color/black"
+        android:textColorHint="@color/gray"
+        android:textCursorDrawable="@null"
+        android:textSize="@dimen/font_small" />
+
+    <View style="@style/spaceLine" />
+
+    <com.mmt.microlove.view.DeletableEditText
+        android:id="@+id/edt_pwd"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/item_normal"
+        android:background="@drawable/edt_view_bg"
+        android:drawableRight="@drawable/btn_delete_selector"
+        android:gravity="center"
+        android:hint="@string/please_enter_password"
+        android:inputType="textPassword"
+        android:maxLines="1"
+        android:paddingLeft="@dimen/padding_small"
+        android:paddingRight="@dimen/padding_small"
+        android:singleLine="true"
+        android:textColor="@color/black"
+        android:textColorHint="@color/gray"
+        android:textCursorDrawable="@null"
+        android:textSize="@dimen/font_small" />
+
+    <View style="@style/spaceLine" />
+
+    <com.mmt.microlove.view.DeletableEditText
+        android:id="@+id/edt_confirm_pwd"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/item_normal"
+        android:background="@drawable/edt_view_bg"
+        android:drawableRight="@drawable/btn_delete_selector"
+        android:gravity="center"
+        android:hint="@string/confirm_password"
+        android:inputType="textPassword"
+        android:maxLines="1"
+        android:paddingLeft="@dimen/padding_small"
+        android:paddingRight="@dimen/padding_small"
+        android:singleLine="true"
+        android:textColor="@color/black"
+        android:textColorHint="@color/gray"
+        android:textCursorDrawable="@null"
+        android:textSize="@dimen/font_small" />
+
+    <TextView
+        style="@style/prompt"
+        android:text="@string/password_format"
+        android:textColor="@color/red" />
+
+    <Button
+        android:id="@+id/btn_registration"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/btn_height_normal"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/margin_normal"
+        android:background="@drawable/btn_content_blue_selector"
+        android:text="@string/registration"
+        android:textColor="@color/white"
+        android:textSize="@dimen/font_normal" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <LinearLayout
+        android:id="@+id/ll_to_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/padding_normal">
+
+        <ImageView
+            android:layout_width="9dp"
+            android:layout_height="18dp"
+            android:src="@mipmap/arrow_left" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_tiny"
+            android:text="@string/to_login"
+            android:textColor="@color/gray_pressed"
+            android:textSize="@dimen/font_normal" />
+    </LinearLayout>
+</LinearLayout>
