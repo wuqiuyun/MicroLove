@@ -5,6 +5,7 @@
     android:orientation="horizontal" >
 
     <RadioGroup
+        android:paddingTop="@dimen/padding_tiny"
         android:id="@+id/rg_bottom"
         android:layout_width="match_parent"
         android:layout_height="@dimen/bottomBar_height"
@@ -16,7 +17,8 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:button="@null"
-            android:drawableTop="@mipmap/d48"
+            android:checked="true"
+            android:drawableTop="@drawable/rb_location_selector"
             android:gravity="center_horizontal"
             android:text="@string/title_activity_location"
             android:textSize="@dimen/text_size_small" />
@@ -27,7 +29,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:button="@null"
-            android:drawableTop="@mipmap/d48"
+            android:drawableTop="@drawable/rb_chat_selector"
             android:gravity="center_horizontal"
             android:text="@string/title_activity_chat"
             android:textSize="@dimen/text_size_small" />
@@ -38,7 +40,7 @@
             android:button="@null"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:drawableTop="@mipmap/d48"
+            android:drawableTop="@drawable/rb_time_selector"
             android:gravity="center_horizontal"
             android:text="@string/title_activity_couple"
             android:textSize="@dimen/text_size_small" />
@@ -49,7 +51,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:drawableTop="@mipmap/d48"
+            android:drawableTop="@drawable/rb_mine_selector"
             android:gravity="center_horizontal"
             android:text="@string/title_activity_mine"
             android:textSize="@dimen/text_size_small" />
