@@ -314,17 +314,14 @@ public class EncryptionUtil {
                 out.write(desEnByte(buffer));
             }
         } catch (FileNotFoundException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         } finally {
             try {
                 out.close();
                 inputStream.close();
             } catch (IOException e) {
-                // TODO Auto-generated catch block
                 e.printStackTrace();
             }
         }
@@ -348,17 +345,14 @@ public class EncryptionUtil {
                 out.write(desDeByte(buffer));
             }
         } catch (FileNotFoundException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         } finally {
             try {
                 out.close();
                 inputStream.close();
             } catch (IOException e) {
-                // TODO Auto-generated catch block
                 e.printStackTrace();
             }
         }

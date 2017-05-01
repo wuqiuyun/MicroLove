@@ -8,6 +8,8 @@ import com.baidu.mapapi.SDKInitializer;
 import java.util.ArrayList;
 import java.util.List;
 
+import cn.bmob.v3.BmobUser;
+
 /**
  *
  */
@@ -15,6 +17,7 @@ public class BaseApplication extends Application {
 
     private static BaseApplication context;
     private static List<Activity> activityList = new ArrayList<>();
+
 
     @Override
     public void onCreate() {
@@ -26,12 +29,17 @@ public class BaseApplication extends Application {
     private void initData() {
         // 初始化百度地图
         SDKInitializer.initialize(this);
+
     }
+
 
     public static BaseApplication getContext() {
         return context;
     }
 
+    public static BmobUser getCurrentuser(){
+        return BmobUser.getCurrentUser();
+    }
 
     @Override
     public void onLowMemory() {

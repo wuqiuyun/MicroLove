@@ -5,11 +5,14 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.mmt.microlove.application.BaseApplication;
 import com.mmt.microlove.R;
+import com.mmt.microlove.application.BaseApplication;
 import com.mmt.microlove.bean.UserInfo;
+import com.mmt.microlove.model.QQLoginModel;
+import com.mmt.microlove.model.impl.QQLoginImpl;
 import com.mmt.microlove.utils.Constants;
 import com.mmt.microlove.utils.EncryptionUtil;
 import com.mmt.microlove.utils.StringUtil;
@@ -34,12 +37,20 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     private static LoginActivity mActivity = null;
     private static final int REGISTRATION_REQUEST_CODE = 0X101;
 
+    private String tag = Constants.TAG;
+
     private CircleImageView mIvUserIcon;
     private DeletableEditText mEdtName;
     private DeletableEditText mEdtPwd;
     private Button mBtnLogin;
     private TextView mTvNotLogin;
     private TextView mTvRegistration;
+    private ImageView mIvQQ;
+    private ImageView mIvWechat;
+    private ImageView mIvSina;
+    private QQLoginModel qqLoginModel = new QQLoginImpl();
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,9 +59,9 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         mActivity = this;
 
         initView();
-        initBmob();
-        setListener();
         initData();
+        setListener();
+
     }
 
     private void initView() {
@@ -60,16 +71,23 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         mBtnLogin = (Button) findViewById(R.id.btn_login);
         mTvNotLogin = (TextView) findViewById(R.id.tv_not_login);
         mTvRegistration = (TextView) findViewById(R.id.tv_registration);
+        mIvQQ = (ImageView) findViewById(R.id.iv_third_login_qq);
+        mIvWechat = (ImageView) findViewById(R.id.iv_third_login_wechat);
+        mIvSina = (ImageView) findViewById(R.id.iv_third_login_sina);
+
     }
 
     private void setListener() {
         mBtnLogin.setOnClickListener(mActivity);
         mTvNotLogin.setOnClickListener(mActivity);
         mTvRegistration.setOnClickListener(mActivity);
+        mIvQQ.setOnClickListener(mActivity);
+        mIvWechat.setOnClickListener(mActivity);
+        mIvSina.setOnClickListener(mActivity);
     }
 
     private void initData() {
-
+        initBmob();
     }
 
     public static void initBmob() {
@@ -108,6 +126,20 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                 login(name, pwd);
                 break;
 
+            case R.id.iv_third_login_qq:
+                ToastUtil.shortShow("QQ登录");
+                //TODO
+                qqLoginModel.loginByQQ(mActivity);
+                break;
+
+            case R.id.iv_third_login_wechat:
+                ToastUtil.shortShow("微信登录");
+                break;
+
+            case R.id.iv_third_login_sina:
+                ToastUtil.shortShow("微博登录");
+                break;
+
             case R.id.tv_not_login:
                 ToastUtil.shortShow("你再试试^_^");
                 break;
@@ -122,19 +154,20 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     /**
      * @param name
      * @param pwd
-     * @Description 登录
+     * @Description Bmob账号登录
      */
     private void login(String name, String pwd) {
-        final UserInfo userInfo = new UserInfo();
+        final com.mmt.microlove.bean.UserInfo userInfo = new com.mmt.microlove.bean.UserInfo();
         String md5Pwd = EncryptionUtil.md5(pwd);
         userInfo.loginByAccount(name, md5Pwd, new LogInListener<UserInfo>() {
 
             @Override
             public void done(UserInfo userinfo, BmobException e) {
-                if (e == null&&userinfo!=null) {
+                if (e == null && userinfo != null) {
                     ToastUtil.shortShow(UIUtils.getString(R.string.login_successful));
+
                     startEnterActivity(MainActivity.class);
-                    UserInfo user   = BmobUser.getCurrentUser(UserInfo.class);
+                    UserInfo user = BmobUser.getCurrentUser(UserInfo.class);
                     finish();
                 } else {
                     if (e.getErrorCode() == 101) {
@@ -146,7 +179,6 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
             }
         });
     }
-
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -163,4 +195,12 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                 break;
         }
     }
+
+
+
+
+
+
+
+
 }

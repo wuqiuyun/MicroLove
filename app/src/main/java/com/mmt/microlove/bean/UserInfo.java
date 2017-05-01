@@ -10,6 +10,15 @@ public class UserInfo extends BmobUser {
     private String nick;
     private Integer age;
 
+    public UserInfo() {
+    }
+
+    public UserInfo(Boolean sex, String nick, Integer age) {
+        this.sex = sex;
+        this.nick = nick;
+        this.age = age;
+    }
+
     public boolean getSex() {
         return this.sex;
     }
@@ -32,5 +41,14 @@ public class UserInfo extends BmobUser {
 
     public void setAge(Integer age) {
         this.age = age;
+    }
+
+    @Override
+    public String toString() {
+        return "UserInfo{" +
+                "sex=" + sex +
+                ", nick='" + nick + '\'' +
+                ", age=" + age +
+                '}';
     }
 }

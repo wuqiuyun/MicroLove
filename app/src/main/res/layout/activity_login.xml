@@ -67,10 +67,46 @@
         android:textColor="@color/white"
         android:textSize="@dimen/font_normal" />
 
-    <View
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/third_login"
+        android:text="@string/third_login"
+        android:textColor="@color/blue"
+        android:gravity="center"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_marginBottom="@dimen/margin_max"
+        android:layout_marginTop="@dimen/margin_huge"
+        >
+        <ImageView
+            android:id="@+id/iv_third_login_qq"
+            android:layout_width="@dimen/img_normal"
+            android:layout_height="@dimen/img_normal"
+            android:src="@mipmap/qq"
+            android:layout_marginRight="@dimen/margin_normal"
+            />
+        <ImageView
+            android:id="@+id/iv_third_login_wechat"
+            android:layout_width="@dimen/img_normal"
+            android:layout_height="@dimen/img_normal"
+            android:src="@mipmap/wechat"
+            android:layout_marginRight="@dimen/margin_normal"
+            />
+        <ImageView
+            android:id="@+id/iv_third_login_sina"
+            android:layout_width="@dimen/img_normal"
+            android:layout_height="@dimen/img_normal"
+            android:src="@mipmap/sina"
+            />
+    </LinearLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
