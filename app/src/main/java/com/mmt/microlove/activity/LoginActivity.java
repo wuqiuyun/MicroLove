@@ -11,7 +11,8 @@ import android.widget.TextView;
 import com.mmt.microlove.R;
 import com.mmt.microlove.application.BaseApplication;
 import com.mmt.microlove.bean.UserInfo;
-import com.mmt.microlove.model.QQLoginModel;
+import com.mmt.microlove.model.LoginModel;
+import com.mmt.microlove.model.impl.LoginModelImpl;
 import com.mmt.microlove.model.impl.QQLoginImpl;
 import com.mmt.microlove.utils.Constants;
 import com.mmt.microlove.utils.EncryptionUtil;
@@ -33,12 +34,9 @@ import cn.bmob.v3.listener.LogInListener;
  * @Time 2017/4/17
  */
 public class LoginActivity extends BaseActivity implements View.OnClickListener {
-
     private static LoginActivity mActivity = null;
     private static final int REGISTRATION_REQUEST_CODE = 0X101;
-
     private String tag = Constants.TAG;
-
     private CircleImageView mIvUserIcon;
     private DeletableEditText mEdtName;
     private DeletableEditText mEdtPwd;
@@ -48,9 +46,9 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     private ImageView mIvQQ;
     private ImageView mIvWechat;
     private ImageView mIvSina;
-    private QQLoginModel qqLoginModel = new QQLoginImpl();
+    private QQLoginImpl qqLoginImpl = new QQLoginImpl();
 
-
+    private LoginModel loginModel = new LoginModelImpl();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -123,21 +121,19 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                     ToastUtil.shortShow(UIUtils.getString(R.string.please_enter_password));
                     return;
                 }
-                login(name, pwd);
+                bmobLogin(name, pwd);
                 break;
 
-            case R.id.iv_third_login_qq:
-                ToastUtil.shortShow("QQ登录");
-                //TODO
-                qqLoginModel.loginByQQ(mActivity);
+            case R.id.iv_third_login_qq://TODO
+                qqLoginImpl.loginByQQ(mActivity);
                 break;
 
             case R.id.iv_third_login_wechat:
-                ToastUtil.shortShow("微信登录");
+//                String snsType = "weixin";
                 break;
 
             case R.id.iv_third_login_sina:
-                ToastUtil.shortShow("微博登录");
+//                snsType = "weibo";
                 break;
 
             case R.id.tv_not_login:
@@ -156,7 +152,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
      * @param pwd
      * @Description Bmob账号登录
      */
-    private void login(String name, String pwd) {
+    private void bmobLogin(String name, String pwd) {
         final com.mmt.microlove.bean.UserInfo userInfo = new com.mmt.microlove.bean.UserInfo();
         String md5Pwd = EncryptionUtil.md5(pwd);
         userInfo.loginByAccount(name, md5Pwd, new LogInListener<UserInfo>() {
@@ -195,12 +191,4 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                 break;
         }
     }
-
-
-
-
-
-
-
-
 }

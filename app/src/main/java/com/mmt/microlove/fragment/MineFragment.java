@@ -12,6 +12,10 @@ import android.widget.TextView;
 import com.mmt.microlove.R;
 import com.mmt.microlove.activity.LoginActivity;
 import com.mmt.microlove.activity.SettingActivity;
+import com.mmt.microlove.application.BaseApplication;
+import com.mmt.microlove.bean.UserInfo;
+import com.mmt.microlove.utils.Constants;
+import com.mmt.microlove.utils.LogUtil;
 import com.mmt.microlove.utils.ToastUtil;
 import com.mmt.microlove.utils.UIUtils;
 
@@ -21,6 +25,9 @@ public class MineFragment extends Fragment implements View.OnClickListener {
     private TextView tvExit;
     private TextView tvNickname;
     private TextView tvSetting;
+
+    private UserInfo userInfo = BaseApplication.getmUser();
+    private String tag = Constants.TAG;
 
     @Override
     public View onCreateView(LayoutInflater inflater,
@@ -34,6 +41,16 @@ public class MineFragment extends Fragment implements View.OnClickListener {
         super.onActivityCreated(savedInstanceState);
         initView();
         setListener();
+        updateUserInfo();
+    }
+
+    private void updateUserInfo() {
+        //BmobUser中的特定属性
+        String username = (String) BmobUser.getObjectByKey("username");
+        //MyUser中的扩展属性
+        String nickname = (String) BmobUser.getObjectByKey("nickname");
+        LogUtil.i(tag, "我的username:" + username + "\n我的nickname:" + nickname);
+
     }
 
     private void initView() {

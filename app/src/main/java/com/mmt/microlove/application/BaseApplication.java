@@ -4,19 +4,19 @@ import android.app.Activity;
 import android.app.Application;
 
 import com.baidu.mapapi.SDKInitializer;
+import com.mmt.microlove.bean.UserInfo;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import cn.bmob.v3.BmobUser;
-
 /**
- *
+ * BaseApplication
  */
 public class BaseApplication extends Application {
 
     private static BaseApplication context;
     private static List<Activity> activityList = new ArrayList<>();
+    private static UserInfo mUser =null;
 
 
     @Override
@@ -32,14 +32,22 @@ public class BaseApplication extends Application {
 
     }
 
+    /**
+     * 获取当前用户
+     * @return 当前用户，若未登录则的返回null
+     */
+    public static UserInfo getmUser(){
+        UserInfo userInfo = mUser.getCurrentUser(UserInfo.class);
+        if (userInfo!=null){
+            return userInfo;
+        }
+        return null;
+    }
 
     public static BaseApplication getContext() {
         return context;
     }
 
-    public static BmobUser getCurrentuser(){
-        return BmobUser.getCurrentUser();
-    }
 
     @Override
     public void onLowMemory() {

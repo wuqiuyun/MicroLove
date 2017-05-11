@@ -7,7 +7,8 @@ import android.os.Message;
 
 import com.google.gson.Gson;
 import com.mmt.microlove.application.BaseApplication;
-import com.mmt.microlove.bean.QQUserInfo;
+import com.mmt.microlove.bean.UserInfo;
+import com.mmt.microlove.model.LoginModel;
 import com.mmt.microlove.model.QQLoginModel;
 import com.mmt.microlove.utils.AppConstants;
 import com.mmt.microlove.utils.Constants;
@@ -17,7 +18,6 @@ import com.tencent.tauth.IUiListener;
 import com.tencent.tauth.Tencent;
 import com.tencent.tauth.UiError;
 
-import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
@@ -30,21 +30,17 @@ public class QQLoginImpl implements QQLoginModel {
     private Context mContext = BaseApplication.getContext();
     private String tag = Constants.TAG;
     private com.tencent.connect.UserInfo mInfo;
-    private String openid;
-    private String access_token;
+    private LoginModel loginImpl = new LoginModelImpl();
+
     Handler mHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
             /** 获取用户信息成功 */
             if (msg.what == 0) {
                 JSONObject response = (JSONObject) msg.obj;
+
                 if (response.has("nickname")) {
-                    try {
-                        ToastUtil.longShow("获取用户信息成功，返回结果：" + response.toString());
-                        LogUtil.i(Constants.TAG, "登录成功\n" + "用户id:" + openid + "\n昵称:" + response.getString("nickname") + "\n头像地址:" + response.get("figureurl_qq_1"));
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
+//                    ToastUtil.longShow("用户信息：" + response.toString());
                 }
             } else if (msg.what == 1) {
                 ToastUtil.longShow(msg + "");
@@ -70,7 +66,9 @@ public class QQLoginImpl implements QQLoginModel {
             protected void doComplete(JSONObject values) {
                 initOpenidAndToken(values);
                 updateUserInfo();
+
             }
+
         };
         /** 判断是否登陆过 */
         if (!mTencent.isSessionValid()) {
@@ -80,8 +78,8 @@ public class QQLoginImpl implements QQLoginModel {
             mTencent.logout(mContext);
             mTencent.login(mActivity, "all", loginListener);
         }
-
     }
+
 
     /**
      * QQ登录第一步：获取token和openid
@@ -129,12 +127,12 @@ public class QQLoginImpl implements QQLoginModel {
         Gson gson = new Gson();
         try {
             String response = jsonObject.toString();
-            QQUserInfo userInfo = gson.fromJson(response, QQUserInfo.class);
-            access_token = userInfo.getAccess_token();
-            openid = userInfo.getOpenid();
-            userInfo.getOpenid();
-            userInfo.getAccess_token();
-            LogUtil.i(tag, "gson_access_token: " + access_token + "gson_openid: " + openid);
+            UserInfo user = gson.fromJson(response, UserInfo.class);
+            String accessToken = user.getAccess_token();
+            String userId = user.getOpenid();
+            String expiresIn = user.getExpires_in();
+            String snsType = "qq";
+            loginImpl.thirdLogin(snsType, accessToken, expiresIn, userId);
 
         } catch (Exception e) {
 
