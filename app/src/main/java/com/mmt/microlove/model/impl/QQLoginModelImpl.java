@@ -24,7 +24,7 @@ import org.json.JSONObject;
  * Created by wuqiuyun on 2017/4/28.
  * QQ第三方登录
  */
-public class QQLoginImpl implements QQLoginModel {
+public class QQLoginModelImpl implements QQLoginModel {
     private Tencent mTencent;
     private Activity mActivity = null;
     private Context mContext = BaseApplication.getContext();

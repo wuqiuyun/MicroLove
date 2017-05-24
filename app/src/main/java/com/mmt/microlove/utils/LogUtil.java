@@ -8,7 +8,6 @@ import android.util.Log;
  * @Time 2017/4/17
  */
 public class LogUtil {
-
     private final static boolean DEBUG = true;
 
     public static void v(String tag, String msg) {

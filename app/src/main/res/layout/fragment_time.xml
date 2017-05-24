@@ -3,36 +3,32 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <ListView
-        android:divider="@color/transparent"
-        android:id="@+id/lv_chat"
+
+    <TextView
+        android:id="@+id/tv_chat"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:textSize="@dimen/text_size_huge" />
+        android:layout_weight="1"></TextView>
 
     <LinearLayout
+        android:paddingLeft="@dimen/padding_normal"
+        android:paddingRight="@dimen/padding_small"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin_small"
         android:orientation="horizontal">
 
         <EditText
-            android:id="@+id/et_content"
+            android:id="@+id/et_say"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:hint="what do you want to say..."
-            android:padding="@dimen/padding_small" />
+            android:layout_height="wrap_content"
+            android:hint="what do you want to say..." />
 
         <Button
-            android:id="@+id/btn_send"
+            android:id="@+id/btn_nosend"
             android:layout_width="@dimen/btn_width_normal"
             android:layout_height="@dimen/btn_height_normal"
-            android:layout_gravity="right|bottom"
-            android:background="@drawable/btn_content_blue_selector"
+            android:layout_gravity="center_horizontal"
             android:text="@string/send" />
     </LinearLayout>
-
-
 </LinearLayout>

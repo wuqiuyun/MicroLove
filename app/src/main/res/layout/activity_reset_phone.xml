@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    tools:context="com.mmt.microlove.activity.SettingActivity">
+
+    <EditText
+        android:id="@+id/et_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_max"
+        android:layout_marginRight="@dimen/margin_max"
+        android:hint="去string设置电话号码"
+        android:textSize="@dimen/text_size_normal" />
+
+    <EditText
+        android:id="@+id/et_verification_code"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/et_phone"
+        android:layout_marginLeft="@dimen/margin_max"
+        android:layout_marginRight="@dimen/margin_max"
+        android:layout_marginTop="@dimen/margin_normal"
+        android:hint="去string设置验证码"
+        android:inputType="textPassword"
+        android:textSize="@dimen/text_size_normal" />
+
+
+
+    <Button
+        android:id="@+id/btn_commit"
+        android:layout_width="@dimen/btn_width_normal"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/et_verification_code"
+        android:layout_marginTop="@dimen/margin_normal"
+        android:text="@string/determine" />
+</RelativeLayout>

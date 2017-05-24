@@ -1,4 +1,4 @@
-package com.mmt.microlove.activity;
+package com.mmt.microlove.activity.main;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,6 +7,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 
 import com.mmt.microlove.R;
+import com.mmt.microlove.activity.BaseActivity;
 import com.mmt.microlove.bean.UserInfo;
 import com.mmt.microlove.utils.Constants;
 import com.mmt.microlove.utils.EncryptionUtil;

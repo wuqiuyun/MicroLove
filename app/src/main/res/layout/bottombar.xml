@@ -20,7 +20,7 @@
             android:checked="true"
             android:drawableTop="@drawable/rb_location_selector"
             android:gravity="center_horizontal"
-            android:text="@string/title_activity_location"
+            android:text="@string/fragment_location"
             android:textColor="@drawable/rb_location_selector"
             android:textSize="@dimen/text_size_small" />
 
@@ -32,19 +32,19 @@
             android:button="@null"
             android:drawableTop="@drawable/rb_chat_selector"
             android:gravity="center_horizontal"
-            android:text="@string/title_activity_chat"
+            android:text="@string/fragment_chat"
             android:textColor="@drawable/rb_chat_selector"
             android:textSize="@dimen/text_size_small" />
 
         <RadioButton
-            android:id="@+id/rb_couple"
+            android:id="@+id/rb_time"
             android:layout_width="0dp"
             android:button="@null"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:drawableTop="@drawable/rb_time_selector"
             android:gravity="center_horizontal"
-            android:text="@string/title_activity_couple"
+            android:text="@string/fragment_time"
             android:textColor="@drawable/rb_time_selector"
             android:textSize="@dimen/text_size_small" />
 
@@ -56,7 +56,7 @@
             android:layout_weight="1"
             android:drawableTop="@drawable/rb_mine_selector"
             android:gravity="center_horizontal"
-            android:text="@string/title_activity_mine"
+            android:text="@string/fragment_mine"
             android:textColor="@drawable/rb_mine_selector"
             android:textSize="@dimen/text_size_small" />
     </RadioGroup>

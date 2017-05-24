@@ -3,6 +3,7 @@ package com.mmt.microlove.bean;
 import cn.bmob.v3.BmobUser;
 
 /**
+ * 用户相关信息
  * Created by wuqiuyun on 2017/4/17.
  */
 public class UserInfo extends BmobUser {

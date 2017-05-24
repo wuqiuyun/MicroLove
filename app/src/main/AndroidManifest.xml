@@ -36,6 +36,21 @@
             android:name="com.baidu.lbsapi.API_KEY"
             android:value="E24f9sN1gUKG1rbs1QxlUasSuquKLfF2" />
 
+
+        <activity android:name=".activity.main.LoginActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".activity.main.MainActivity" />
+        <activity android:name=".activity.main.RegisterActivity" />
+        <activity android:name=".activity.ResetUserDataActivity" />
+        <activity android:name=".activity.ResetPhoneActivity" />
+        <activity android:name=".activity.SettingActivity" />
+
+        <!--QQ登录相关Activity-->
         <activity
             android:name="com.tencent.tauth.AuthActivity"
             android:launchMode="singleTask"
@@ -54,24 +69,12 @@
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="behind"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-        <activity
-            android:name=".activity.MainActivity"
-            android:label="@string/app_name" />
-        <activity android:name=".activity.LoginActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".activity.RegisterActivity" />
-
+        <!--百度定位相关Service-->
         <service
             android:name="com.baidu.location.f"
             android:enabled="true"
             android:process=":remote" />
-
-        <activity android:name=".activity.SettingActivity"></activity>
     </application>
 
 </manifest>

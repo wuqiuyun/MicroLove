@@ -69,7 +69,7 @@ public class BaiduLocatUtil {
 
     public static void setListener(BdLocationCallBack callBacks) {
         callBack = callBacks;
-        LogUtil.v(tag,"BdLocationCallBack-->callBacks:"+callBacks);
+        LogUtil.v(tag, "BdLocationCallBack-->callBacks:" + callBacks);
     }
 
     public static class MyLocationListener implements BDLocationListener {

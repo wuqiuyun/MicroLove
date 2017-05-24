@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.baidu.location.BDLocation;
 import com.baidu.mapapi.map.BaiduMap;
@@ -20,6 +21,7 @@ import com.mmt.microlove.utils.BaiduLocatUtil;
 import com.mmt.microlove.utils.Constants;
 import com.mmt.microlove.utils.LogUtil;
 import com.mmt.microlove.utils.ToastUtil;
+import com.mmt.microlove.utils.UIUtils;
 import com.tencent.tauth.IUiListener;
 import com.tencent.tauth.UiError;
 
@@ -28,8 +30,9 @@ public class LocationFragment extends Fragment {
     private MapView mMapView = null;
     private BaiduMap mBaiduMap = null;
     private BitmapDescriptor mCurrentMarker;
-    View view;
-
+    private TextView textTitle;
+    private View view;
+    private BDLocation location = null;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -41,8 +44,14 @@ public class LocationFragment extends Fragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
+        initView();
         initData();
+    }
+
+    private void initView() {
+        textTitle = (TextView) getActivity().findViewById(R.id.tv_title);
+        textTitle.setText(UIUtils.getString(R.string.my_location));
+        textTitle.setTextColor(UIUtils.getColor(R.color.white));
     }
 
     private void initData() {
@@ -60,9 +69,12 @@ public class LocationFragment extends Fragment {
         //注册监听函数
         BaiduLocatUtil.initLocation();
         BaiduLocatUtil.setListener(new BdLocationCallBack() {
+
+
             @Override
             public void onCompletePosition(BDLocation location) {
                 Log.e("joey", location + "  回调");
+                LocationFragment.this.location = location;
                 showMyLocation(location);
                 showLocationInfo(location);
             }
@@ -105,26 +117,39 @@ public class LocationFragment extends Fragment {
         Log.e("joey", sb.toString());
     }
 
+    //获取定位信息
+    public BDLocation getLocation() {
+        if (location == null) {
+            initBaiduMap();
+            return location;
+        }
+        return location;
+    }
+
     private class BaseUiListener implements IUiListener {
         @Override
         public void onComplete(Object response) {
-           // mBaseMessageText.setText("onComplete:");
+            // mBaseMessageText.setText("onComplete:");
             doComplete(response);
-            LogUtil.i(Constants.TAG,"BaseUiListener-->onComplete-->response:"+response.toString());
+            LogUtil.i(Constants.TAG, "BaseUiListener-->onComplete-->response:" + response.toString());
         }
+
         protected void doComplete(Object values) {
 
         }
+
         @Override
         public void onError(UiError e) {
-            ToastUtil.shortShow("onError:"+"code:" + e.errorCode + ", msg:"
+            ToastUtil.shortShow("onError:" + "code:" + e.errorCode + ", msg:"
                     + e.errorMessage + ", detail:" + e.errorDetail);
         }
+
         @Override
         public void onCancel() {
             ToastUtil.shortShow("onCancel");
         }
     }
+
     @Override
     public void onDestroy() {
         super.onDestroy();

@@ -1,4 +1,4 @@
-package com.mmt.microlove.activity;
+package com.mmt.microlove.activity.main;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,13 +9,17 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.mmt.microlove.R;
+import com.mmt.microlove.activity.BaseActivity;
 import com.mmt.microlove.application.BaseApplication;
 import com.mmt.microlove.bean.UserInfo;
+import com.mmt.microlove.model.CurrentUserInfoModel;
 import com.mmt.microlove.model.LoginModel;
+import com.mmt.microlove.model.impl.CurrentUserInfoModelImpl;
 import com.mmt.microlove.model.impl.LoginModelImpl;
-import com.mmt.microlove.model.impl.QQLoginImpl;
+import com.mmt.microlove.model.impl.QQLoginModelImpl;
 import com.mmt.microlove.utils.Constants;
 import com.mmt.microlove.utils.EncryptionUtil;
+import com.mmt.microlove.utils.LogUtil;
 import com.mmt.microlove.utils.StringUtil;
 import com.mmt.microlove.utils.ToastUtil;
 import com.mmt.microlove.utils.UIUtils;
@@ -46,7 +50,8 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     private ImageView mIvQQ;
     private ImageView mIvWechat;
     private ImageView mIvSina;
-    private QQLoginImpl qqLoginImpl = new QQLoginImpl();
+    private QQLoginModelImpl qqLoginImpl = new QQLoginModelImpl();
+    private CurrentUserInfoModel currentUserInfoModel = new CurrentUserInfoModelImpl();
 
     private LoginModel loginModel = new LoginModelImpl();
 
@@ -122,9 +127,10 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                     return;
                 }
                 bmobLogin(name, pwd);
+
                 break;
 
-            case R.id.iv_third_login_qq://TODO
+            case R.id.iv_third_login_qq:
                 qqLoginImpl.loginByQQ(mActivity);
                 break;
 
@@ -138,6 +144,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
 
             case R.id.tv_not_login:
                 ToastUtil.shortShow("你再试试^_^");
+                showCurrentUserInfo();
                 break;
 
             case R.id.tv_registration:
@@ -145,6 +152,12 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                 startActivityForResult(intent, REGISTRATION_REQUEST_CODE);
                 break;
         }
+    }
+
+    private void showCurrentUserInfo() {
+        currentUserInfoModel.getCurrentUser("nickname","gender");
+        LogUtil.i(tag,"获取nickname与gender");
+
     }
 
     /**
@@ -157,13 +170,13 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         String md5Pwd = EncryptionUtil.md5(pwd);
         userInfo.loginByAccount(name, md5Pwd, new LogInListener<UserInfo>() {
 
+
             @Override
             public void done(UserInfo userinfo, BmobException e) {
                 if (e == null && userinfo != null) {
                     ToastUtil.shortShow(UIUtils.getString(R.string.login_successful));
-
-                    startEnterActivity(MainActivity.class);
-                    UserInfo user = BmobUser.getCurrentUser(UserInfo.class);
+                    startEnterActivity(MainActivity.class);//登录成功跳转到主页面
+                    getCurrentUserInfo();//获取当前用户信息
                     finish();
                 } else {
                     if (e.getErrorCode() == 101) {
@@ -189,6 +202,15 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                 mEdtName.setText(username);
                 mEdtPwd.setText(password);
                 break;
+        }
+    }
+
+    public void getCurrentUserInfo() {
+        //获取当前用户信息
+        UserInfo user = BmobUser.getCurrentUser(UserInfo.class);
+        LogUtil.i(tag, "获取当前用户信息user= " + user);
+        if (user != null) {
+            currentUserInfoModel.saveCurrentUser(user);
         }
     }
 }

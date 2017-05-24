@@ -2,7 +2,7 @@ package com.mmt.microlove.model.impl;
 
 import android.content.Intent;
 
-import com.mmt.microlove.activity.MainActivity;
+import com.mmt.microlove.activity.main.MainActivity;
 import com.mmt.microlove.application.BaseApplication;
 import com.mmt.microlove.model.LoginModel;
 import com.mmt.microlove.utils.Constants;

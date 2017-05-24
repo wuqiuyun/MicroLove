@@ -35,7 +35,7 @@ public class Constants {
     /**
      * @Description 性别
      */
-    public static final String sex = "sex";
+    public static final String gender = "gender";
     /**
      * @Description 出生年月
      */
@@ -44,6 +44,10 @@ public class Constants {
      * @Description 头像
      */
     public static final String icon = "icon";
+    /**
+     * @Description 手机
+     */
+    public static final String phone = "phone";
 
 
 

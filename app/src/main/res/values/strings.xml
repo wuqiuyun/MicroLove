@@ -4,17 +4,22 @@
     <string name="app_name">微爱</string>
 
     <!-- 聊天 -->
-    <string name="title_activity_chat">聊天</string>
+    <string name="fragment_chat">聊天</string>
 
     <!-- 我的 -->
-    <string name="title_activity_mine">我的</string>
+    <string name="fragment_mine">我的</string>
 
     <!-- 时光 -->
-    <string name="title_activity_couple">时光</string>
+    <string name="fragment_time">时光</string>
 
     <!-- 定位 -->
-    <string name="title_activity_location">定位</string>
+    <string name="fragment_location">定位</string>
+    <string name="my_location">我的位置</string>
 
+    <!-- 个人设置 -->
+    <string name="nickname">昵称</string>
+    <string name="gender">性别</string>
+    <string name="phone">手机</string>
 
     <!-- 登录/注册 -->
     <string name="login">登录</string>
